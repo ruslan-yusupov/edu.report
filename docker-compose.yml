@@ -3,7 +3,7 @@ version: '3'
 services:
     nginx:
         image: nginx:latest
-        container_name: nginx-container
+        container_name: nginx-container-edu
         ports:
             - '80:80'
         volumes:
@@ -18,7 +18,7 @@ services:
         build:
             context: ./docker/php/
             dockerfile: php_dockerfile
-        container_name: php-container
+        container_name: php-container-edu
         volumes:
             - ./:/code
         networks:
@@ -28,7 +28,7 @@ services:
 
     mysql:
         image: 'mysql'
-        container_name: mysql-container
+        container_name: mysql-container-edu
         ports:
             - '3306:3306'
         volumes:
