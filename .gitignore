@@ -1,2 +1,6 @@
 /.idea
-/docker/mysql
+/node_modules
+/src/dist
+/vendor/
+/src/dist/
+/node_modules/

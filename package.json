@@ -1,0 +1,22 @@
+{
+  "name": "edu.report",
+  "version": "1.0.0",
+  "description": "edu.report",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ruslan-yusupov/edu.report"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
+    "webpack": "NODE_ENV=development webpack --config webpack.config.js --watch"
+  }
+}
