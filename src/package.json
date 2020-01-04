@@ -10,7 +10,16 @@
   "optionalDependencies": {
     "fsevents": "*"
   },
-  "dependencies": {},
+  "dependencies": {
+    "autoprefixer": "^9.7.3",
+    "bootstrap": "^4.4.1",
+    "css-loader": "^3.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2"
+  },
   "devDependencies": {
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10"

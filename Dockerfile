@@ -56,4 +56,4 @@ RUN chown -R www-data:www-data ./
 
 USER www-data
 
-RUN composer clear-cache && composer install
+#RUN composer clear-cache && composer install
