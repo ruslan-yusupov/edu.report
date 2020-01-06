@@ -3,4 +3,4 @@
 /src/dist
 /vendor/
 /src/dist/
-/node_modules/
+/src/node_modules
