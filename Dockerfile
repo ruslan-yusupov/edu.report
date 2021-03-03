@@ -16,7 +16,7 @@ COPY ./docker/db/edu.sql /docker-entrypoint-initdb.d
 
 
 ### WORKSPACE stage
-FROM php:7.4-fpm as php
+FROM php:8.0-fpm as php
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -56,4 +56,4 @@ RUN chown -R www-data:www-data ./
 
 USER www-data
 
-#RUN composer clear-cache && composer install
+RUN composer clear-cache && composer install
