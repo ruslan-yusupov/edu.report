@@ -12,11 +12,11 @@ FROM nginx:latest as nginx
 ### MYSQL stage
 FROM mysql as mysql
 
-COPY ./docker/db/edu.sql /docker-entrypoint-initdb.d
+COPY docker/db/phone_book.sql /docker-entrypoint-initdb.d
 
 
 ### WORKSPACE stage
-FROM php:8.0-fpm as php
+FROM php:7.4-fpm as php
 
 RUN apt-get update \
     && apt-get upgrade -y \
@@ -41,21 +41,21 @@ RUN apt-get update \
     && npm install
 
 COPY /docker/php/php.ini /usr/local/etc/php/conf.d/
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+#COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN mkdir -p /home/www-data/edu.report
+RUN mkdir -p /home/www-data/phone.book
 
-WORKDIR /home/www-data/edu.report
+WORKDIR /home/www-data/phone.book
 
 ARG USER_UID
 RUN deluser www-data \
     && addgroup --gid $USER_UID www-data \
     && adduser --uid $USER_UID --gid $USER_UID --home /home/www-data --disabled-password --gecos "First Last,RoomNumber,WorkPhone,HomePhone" www-data
 
-COPY composer.* ./
+#COPY composer.* ./
 
-RUN chown -R www-data:www-data ./
+RUN chown -R www-data:www-data ../
 
 USER www-data
 
-RUN composer clear-cache && composer install
+#RUN composer clear-cache && composer install
