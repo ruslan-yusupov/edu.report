@@ -8,7 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/src/dist/bundle.css">
+        <link rel="stylesheet" href="/dist/bundle.css">
     <title>Document</title>
 </head>
 <body class="text-center">
@@ -17,7 +17,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
       method="post"
       action="/">
     <img class="mb-4 logo"
-         src="/src/app/img/logo/logo.png"
+         src="/assets/app/img/logo/logo.png"
          alt="logo">
     <h1 class="h3 mb-3 font-weight-normal">
         Авторизация
@@ -59,7 +59,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
     </p>
 </form>
 
-<script src="/src/dist/bundle.js"></script>
+<script src="/dist/bundle.js"></script>
 </body>
 
 </html>
