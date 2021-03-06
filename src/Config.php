@@ -21,7 +21,6 @@ class Config
     protected function __construct()
     {
         $envData = file(__DIR__ . '/../.env', FILE_IGNORE_NEW_LINES);
-        dump($envData);
         $configData = [];
         array_walk($envData, function ($value) use (&$configData) {
             if (!empty($value)) {
