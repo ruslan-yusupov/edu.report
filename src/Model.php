@@ -31,7 +31,7 @@ abstract class Model
      * @param int $id
      * @return object|bool
      */
-    public static function findById(int $id)
+    public static function findById(int $id): object|bool
     {
         $db     = new Db;
         $sql    = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';

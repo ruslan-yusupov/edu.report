@@ -39,12 +39,12 @@ class Contact extends Model
      * @param int $id
      * @return object|bool
      */
-    public static function findById(int $id)
+    public static function findById(int $id): object|bool
     {
         $user = User::getCurrentUser();
 
         if (null === $user) {
-            return null;
+            return false; //TODO Here should be null
         }
 
         $db     = new Db;

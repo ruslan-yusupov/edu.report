@@ -25,6 +25,7 @@ use App\View;
                     <h5 class="card-title">Пользователь</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Логин: <?php echo $this->user->login; ?></h6>
                     <h6 class="card-subtitle mb-2 text-muted">Email: <?php echo $this->user->email; ?></h6>
+                    <a href="/profile/<?php echo $this->user->id; ?>" class="card-link">Редактировать</a>
                     <a href="/logout" class="card-link">Выйти</a>
                 </div>
             </div>

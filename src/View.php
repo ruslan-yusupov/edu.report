@@ -57,7 +57,7 @@ class View
      * @param $template
      * @return false|string
      */
-    public function render($template)
+    public function render($template): bool|string
     {
         $templatePath = __DIR__ . '/../templates' . $template;
 

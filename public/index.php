@@ -5,6 +5,7 @@ use App\Controllers\Authorization;
 use App\Controllers\Contacts;
 use App\Controllers\Error;
 use App\Controllers\Index;
+use App\Controllers\Profile;
 use App\Controllers\Registration;
 use App\Router;
 
@@ -27,7 +28,10 @@ $router
     /* Authorization */
     ->add('GET', '/auth', [Authorization::class, 'index'])
     ->add('POST', '/auth', [Authorization::class, 'auth'])
-    ->add('GET', '/logout', [Authorization::class, 'logout']);
+    ->add('GET', '/logout', [Authorization::class, 'logout'])
+    /* Profile */
+    ->add('GET', '/profile/(\d{1,10})', [Profile::class, 'index'])
+    ->add('POST', '/profile', [Profile::class, 'auth']);
 
 
 try {

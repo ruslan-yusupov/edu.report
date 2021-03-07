@@ -13,15 +13,19 @@ class User extends Model
     public static string $table = 'users';
     public string $login;
     public string $email;
-    public $password;
+    public string $name;
+    public string $phone;
+    public int $class;
+    public int $role;
+    public string $password;
 
 
     /**
      * @param string $email
      * @param string $password
-     * @return false|mixed
+     * @return mixed
      */
-    public static function authenticate(string $email, string $password)
+    public static function authenticate(string $email, string $password): mixed
     {
         $db     = new Db;
         $sql    = 'SELECT * FROM ' . self::$table . ' WHERE email=:email';
@@ -41,9 +45,9 @@ class User extends Model
 
 
     /**
-     * @return mixed|null
+     * @return object|bool|null
      */
-    public static function getCurrentUser()
+    public static function getCurrentUser(): object|null|bool
     {
         $userSessionHash = $_COOKIE[self::COOKIE_SESS_NAME] ?? null;
 
@@ -93,7 +97,7 @@ class User extends Model
      */
     public static function register(string $login, string $email, string $password): bool
     {
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $passwordHash = (string) password_hash($password, PASSWORD_DEFAULT);
 
         $user = new self;
         $user->login = $login;
@@ -109,7 +113,7 @@ class User extends Model
      * @param string $login
      * @return object|bool
      */
-    public static function findByLogin(string $login)
+    public static function findByLogin(string $login): object|bool
     {
         $db     = new Db;
         $sql    = 'SELECT * FROM ' . static::$table . ' WHERE login = :login';
@@ -123,7 +127,7 @@ class User extends Model
      * @param string $email
      * @return object|bool
      */
-    public static function findByEmail(string $email)
+    public static function findByEmail(string $email): object|bool
     {
         $db     = new Db;
         $sql    = 'SELECT * FROM ' . static::$table . ' WHERE email = :email';
