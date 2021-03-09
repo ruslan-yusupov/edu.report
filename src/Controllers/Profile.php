@@ -32,7 +32,7 @@ class Profile extends Controller
             throw new Exception('Page is forbidden', 403);
         }
 
-        $this->view->user    = $this->user;
+        $this->view->user = $this->user;
 
         echo $this->view->render('/user/profile.php');
     }
