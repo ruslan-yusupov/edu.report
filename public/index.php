@@ -31,7 +31,7 @@ $router
     ->add('GET', '/logout', [Authorization::class, 'logout'])
     /* Profile */
     ->add('GET', '/profile/(\d{1,10})', [Profile::class, 'index'])
-    ->add('POST', '/profile', [Profile::class, 'update']);
+    ->add('POST', '/profile/(\d{1,10})', [Profile::class, 'update']);
 
 
 try {
