@@ -7,6 +7,7 @@ use App\Controllers\Error;
 use App\Controllers\Index;
 use App\Controllers\Profile;
 use App\Controllers\Registration;
+use App\Controllers\Report;
 use App\Router;
 
 require_once __DIR__ . '/../autoload.php';
@@ -31,7 +32,9 @@ $router
     ->add('GET', '/logout', [Authorization::class, 'logout'])
     /* Profile */
     ->add('GET', '/profile/(\d{1,10})', [Profile::class, 'index'])
-    ->add('POST', '/profile/(\d{1,10})', [Profile::class, 'update']);
+    ->add('POST', '/profile/(\d{1,10})', [Profile::class, 'update'])
+    /* Report */
+    ->add('GET', '/report', [Report::class, 'index']);
 
 
 try {
