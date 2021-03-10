@@ -73,7 +73,7 @@ use App\View;
            id="name"
            class="form-control"
            name="name"
-           placeholder="Имя"
+           placeholder="ФИО"
            value="<?php echo $this->user->name; ?>">
 
     <label for="phone"

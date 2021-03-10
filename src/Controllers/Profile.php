@@ -37,8 +37,9 @@ class Profile extends Controller
 
     public function update() //TODO update
     {
-        $login           = trim($_POST['login']);
         $email           = trim($_POST['email']);
+        $name            = trim($_POST['name']);
+        $oldPassword     = trim($_POST['old_password']);
         $password        = trim($_POST['password']);
         $confirmPassword = trim($_POST['confirm_password']);
         $alerts          = [];
@@ -49,16 +50,18 @@ class Profile extends Controller
                 $alerts[] = 'Некорректный адрес электронной почты';
             /*case Validator::checkPassword($password):
                 $alerts[] = 'Пароль должен состоять из цифр, латинских символов разных регистров
-                и быть не меньше 6-ти знаков';
+                и быть не меньше 6-ти знаков';*/
             case $password === $confirmPassword:
-                $alerts[] = 'Пароли не совпадают';*/
+                $alerts[] = 'Пароли не совпадают';
+            case !empty($name):
+                $alerts[] = 'ФИО не может быть пустым';
             default:
                 break;
         }
 
-        if (false !== User::findByEmail($email)) {
+        /*if (false !== User::findByEmail($email)) {
             $alerts[] = 'Пользователь с таким Email уже существует';
-        }
+        }*/
 
 
         if (!empty($alerts)) {
@@ -68,6 +71,7 @@ class Profile extends Controller
         }
 
         $this->user->email = $email;
+        $this->user->name = $name;
         $this->user->save();
 
         echo $this->view->render('/user/profile.php');

@@ -31,7 +31,7 @@ services:
             context: .
             target: mysql
         container_name: mysql-container
-        restart: always
+        restart: on-failure
         ports:
             - '3306:3306'
         command:
